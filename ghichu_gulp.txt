@@ -21,3 +21,5 @@ npm install --save-dev package-name
 npm install jshint jscs --save-dev
 npm install gulp-jshint gulp-jscs --save-dev
 npm install jshint-stylish --save-dev
+npm install gulp-util --save-dev
+
