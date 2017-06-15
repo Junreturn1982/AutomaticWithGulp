@@ -1,22 +1,14 @@
 const gulp = require('gulp');
 const args = require('yargs').argv;
+const config = require('./gulp.config')();
 
 const $ = require('gulp-load-plugins')({lazy: true});
-
-// const jshint = require('gulp-jshint');
-// const jscs = require('gulp-jscs');
-// const util = require('gulp-util');
-// const gulpprint = require('gulp-print');
-// const gulpif = require('gulp-if');
 
 // gulp vet
 gulp.task('vet', () => {
     log('Analyzing source with JSHint and JSCS');
     return gulp
-            .src([
-                './src/**/*.js',
-                './*.js'
-            ])
+            .src(config.alljs)
             .pipe($.if(args.verbose, $.print()))
             .pipe($.jscs())
             .pipe($.jshint())
