@@ -25,3 +25,6 @@ npm install gulp-util --save-dev
 // print with codition, gulp vet --verbose 
 npm install --save-dev gulp-print gulp-if yargs
 .pipe(gulpif(args.verbose, gulpprint()))
+/*========================*/
+// lazy gulp-load-plugins
+npm install --save-dev gulp-load-plugins
