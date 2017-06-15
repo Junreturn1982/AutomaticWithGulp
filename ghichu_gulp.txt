@@ -49,3 +49,28 @@ gulp.task('default', ['one', 'two']);
 /*========================*/
 // handing error
 npm install --save-dev gulp-plumber
+/*========================*/
+// wiredep
+npm install --save-dev wiredep gulp-inject
+// cannot inject css because in bootstrap -> bower.json it does not see a css file there
+"main": [
+    "less/bootstrap.less",
+    "dist/js/bootstrap.js"
+  ],
+// ./bower.json "overrides" 
+"overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        "less/bootstrap.less"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "less/font-awesome.less",
+        "css/font-awesome.min.css",
+        "scss/font-awesome.scss"
+      ]
+    }
+  }

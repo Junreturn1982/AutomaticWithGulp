@@ -37,6 +37,16 @@ gulp.task('clean-styles', (done) => {
 gulp.task('less-watcher', () => {
     gulp.watch([config.less], ['styles']);
 });
+
+gulp.task('wiredep', () => {
+    let options = config.getWiredepDefaultOptions();
+    let wiredep = require('wiredep').stream;
+    return gulp
+        .src(config.index)
+        .pipe(wiredep(options))
+        // .pipe($.inject(gulp.src(config.js)))
+        .pipe(gulp.dest(config.client));
+});
 /*=============================*/
 function errorLogger(error) {
     log('*** Start of error ***');
