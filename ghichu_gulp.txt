@@ -1,0 +1,16 @@
+https://github.com/johnpapa/pluralsight-gulp
+https://johnpapa.net/tips-for-running-node-and-npm-on-windows/
+jshint
+jscs
+gulp.task
+gulp.src
+gulp.dest
+gulp.watch
+
+// node -v, npm -v, global all windows _ cmd
+// gulp -v, bower -v
+npm install -g gulp  
+npm install -g bower
+npm list -g --depth=0
+// install packages for specific project locally
+npm install --save-dev package-name
