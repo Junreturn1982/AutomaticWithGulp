@@ -15,3 +15,9 @@ npm install -g bower
 npm list -g --depth=0
 // install packages for specific project locally
 npm install --save-dev package-name
+
+/*========================*/
+// .jshintrc, .jscsrc
+npm install jshint jscs --save-dev
+npm install gulp-jshint gulp-jscs --save-dev
+npm install jshint-stylish --save-dev

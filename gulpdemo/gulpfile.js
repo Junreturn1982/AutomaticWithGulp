@@ -1,5 +1,15 @@
 const gulp = require('gulp');
-// gulp hello-world
-gulp.task('hello-world', () => {
-    console.log('Our first hello world gulp task!');
+const jshint = require('gulp-jshint');
+const jscs = require('gulp-jscs');
+
+// gulp vet
+gulp.task('vet', () => {
+    return gulp
+            .src([
+                './src/**/*.js',
+                './*.js'
+            ])
+            .pipe(jscs())
+            .pipe(jshint())
+            .pipe(jshint.reporter('jshint-stylish', {verbose: true}));
 });
