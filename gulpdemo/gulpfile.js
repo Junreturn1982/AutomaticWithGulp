@@ -22,7 +22,9 @@ gulp.task('styles', ['clean-styles'],() => {
 
     return gulp
         .src(config.less)
+        .pipe($.plumber())
         .pipe($.less())
+        // .on('error', errorLogger)
         .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
         .pipe(gulp.dest(config.temp));
 });
@@ -36,11 +38,19 @@ gulp.task('less-watcher', () => {
     gulp.watch([config.less], ['styles']);
 });
 /*=============================*/
+function errorLogger(error) {
+    log('*** Start of error ***');
+    log(error);
+    log('*** End of error ***');
+    this.emit('end');
+}
+
 function clean(path, done) {
     log('Cleaning: ' + $.util.colors.blue(path));
     del(path);
     done(undefined);
 }
+
 function log(msg) {
     if (typeof(msg) === 'object') {
         for (let item in msg) {

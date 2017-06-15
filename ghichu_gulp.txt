@@ -46,3 +46,6 @@ gulp.task('two', ['one'], function() {
 });
 
 gulp.task('default', ['one', 'two']);
+/*========================*/
+// handing error
+npm install --save-dev gulp-plumber
