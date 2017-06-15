@@ -11,6 +11,7 @@ gulp.watch
 // gulp -v, bower -v
 npm install -g gulp  
 npm install -g bower
+// C:\Users\Hoang\AppData\Roaming\npm
 npm list -g --depth=0
 // install packages for specific project locally
 npm install --save-dev package-name
