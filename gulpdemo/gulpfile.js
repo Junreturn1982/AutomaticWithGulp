@@ -2,6 +2,9 @@ const gulp = require('gulp');
 const jshint = require('gulp-jshint');
 const jscs = require('gulp-jscs');
 const util = require('gulp-util');
+const gulpprint = require('gulp-print');
+const gulpif = require('gulp-if');
+const args = require('yargs').argv;
 
 // gulp vet
 gulp.task('vet', () => {
@@ -11,6 +14,7 @@ gulp.task('vet', () => {
                 './src/**/*.js',
                 './*.js'
             ])
+            .pipe(gulpif(args.verbose, gulpprint()))
             .pipe(jscs())
             .pipe(jshint())
             .pipe(jshint.reporter('jshint-stylish', {verbose: true}))
