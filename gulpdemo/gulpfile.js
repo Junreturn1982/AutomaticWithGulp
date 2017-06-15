@@ -16,6 +16,15 @@ gulp.task('vet', () => {
             .pipe($.jshint.reporter('fail'));
 });
 
+gulp.task('styles', () => {
+    log('Compiling Less --> css');
+
+    return gulp
+        .src(config.less)
+        .pipe($.less())
+        .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
+        .pipe(gulp.dest(config.temp));
+});
 //
 function log(msg) {
     if (typeof(msg) === 'object') {
