@@ -31,3 +31,18 @@ npm install --save-dev gulp-load-plugins
 /*========================*/
 // less to css
 npm install --save-dev gulp-less gulp-autoprefixer
+/*========================*/
+// delete files
+npm install --save-dev del
+// takes in a callback so the engine knows when it'll be done
+gulp.task('one', function(cb) {
+    // do stuff -- async or otherwise
+    cb(err); // if err is not null and not undefined, the run will stop, and note that it failed
+});
+
+// identifies a dependent task must be complete before this one begins
+gulp.task('two', ['one'], function() {
+    // task 'one' is done now
+});
+
+gulp.task('default', ['one', 'two']);

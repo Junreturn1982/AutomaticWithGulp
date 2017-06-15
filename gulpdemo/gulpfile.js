@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const args = require('yargs').argv;
 const config = require('./gulp.config')();
+const del = require('del');
 
 const $ = require('gulp-load-plugins')({lazy: true});
 
@@ -16,7 +17,7 @@ gulp.task('vet', () => {
             .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('styles', () => {
+gulp.task('styles', ['clean-styles'],() => {
     log('Compiling Less --> css');
 
     return gulp
@@ -25,7 +26,17 @@ gulp.task('styles', () => {
         .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
         .pipe(gulp.dest(config.temp));
 });
-//
+
+gulp.task('clean-styles', (done) => {
+    let files = config.temp + '**/*.css';
+    clean(files, done);
+});
+/*=============================*/
+function clean(path, done) {
+    log('Cleaning: ' + $.util.colors.blue(path));
+    del(path);
+    done(undefined);
+}
 function log(msg) {
     if (typeof(msg) === 'object') {
         for (let item in msg) {
