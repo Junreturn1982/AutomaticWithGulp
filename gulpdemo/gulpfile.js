@@ -77,6 +77,10 @@ gulp.task('server-dev', ['inject'], () => {
         .on('restart', ['vet'], (event) => {
             log('*** nodemon restart ***');
             log('files changed on restart: \n' + event);
+            setTimeout(function() {
+                browserSync.notify('reloading now...');
+                browserSync.reload({stream: false});
+            }, 1000);
         })
         .on('start', () => {
             log('*** nodemon started ***');
@@ -91,13 +95,13 @@ gulp.task('server-dev', ['inject'], () => {
 });
 /*=============================*/
 function startBrowserSync() {
-    if (browserSync.active) {
+    if (args.nosync || browserSync.active) {
         return;
     }
     log('Starting browser-sync on port ' + port);
     let options = {
         proxy: 'localhost:' + port,
-        port: 3000,
+        port: 4000,
         files: [
             './src/views/' + '*.*', // '**/*.*' 
             './public/**/*.css'
