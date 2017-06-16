@@ -98,7 +98,10 @@ function startBrowserSync() {
     let options = {
         proxy: 'localhost:' + port,
         port: 3000,
-        files: ['./src/views/' + '*.*'], // '**/*.*'
+        files: [
+            './src/views/' + '*.*', // '**/*.*' 
+            './public/**/*.css'
+        ],
         ghostMode: {
             clicks: true,
             location: false,
