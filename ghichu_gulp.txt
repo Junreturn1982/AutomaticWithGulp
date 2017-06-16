@@ -17,6 +17,11 @@ npm list -g --depth=0
 npm install --save-dev package-name
 
 /*========================*/
+// .jscsrc remove the lines
+"validateJSDoc": {
+        "checkParamNames": true,
+        "requireParamTypes": true
+    },
 // .jshintrc, .jscsrc
 npm install jshint jscs --save-dev
 npm install gulp-jshint gulp-jscs --save-dev

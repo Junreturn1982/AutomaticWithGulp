@@ -6,11 +6,22 @@
 		<title>Storystrap Template</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-		<!-- bower:css -->
-		<!-- endbower -->
-		<link href="/css/styles.css" rel="stylesheet">
+		<!--bower:css-->
+		<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+		<!--endbower-->
+    <!-- script references -->
+    <!--bower:js-->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!--endbower-->
+    <!--inject:css-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--endinject-->
+    <!--inject:js-->
+    <script src="/js/bootstrap.min.js"></script>
+    <!--endinject-->
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -26,9 +37,18 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <% for(let i = 0;i<nav.length; i++) {%>
-          <li><a href="<%= nav[i].link%>"><%= nav[i].text%></a></li>
-          <% } %>
+        <li>
+          <a href="#">Category</a>
+        </li>
+        <li>
+          <a href="#">Category</a>
+        </li>
+        <li>
+          <a href="#">Category</a>
+        </li>
+        <li>
+          <a href="#">Category</a>
+        </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <li class="dropdown">
@@ -236,12 +256,6 @@
     </div>
   </div>
 </footer>
-	<!-- script references -->
-		<script src="/lib/jquery/dist/jquery.min.js"></script>
-		<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- bower:js -->
-    <!-- endbower -->
-
-    
+	
 	</body>
 </html>

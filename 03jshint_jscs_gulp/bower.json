@@ -1,0 +1,37 @@
+{
+  "name": "01day",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "junreturn1982 <ngochoang071982@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Junreturn1982/LearnMyself",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "font-awsome#^4.7.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        "less/bootstrap.less"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "less/font-awesome.less",
+        "css/font-awesome.min.css",
+        "scss/font-awesome.scss"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+1. JSHint is about coding standards, JSCS is about coding styles.
+// https://github.com/jonathanfmills/CodingStandards
+2. install extensions: JSHint and JSCS
+http://avillenas.com/post/installing-jshint-and-jscs-in-visual-studio-code
+npm install jshint 
+npm install jscs
+3. gulp
+npm install gulp --save-dev
+// .jscsrc remove the lines
+"validateJSDoc": {
+        "checkParamNames": true,
+        "requireParamTypes": true
+    },
