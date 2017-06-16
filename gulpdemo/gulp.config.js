@@ -2,9 +2,11 @@ module.exports = function () {
     let client = './src/client/';
     let clientView = './src/views/';
     let temp = './.tmp/';
+    let server = './';
 
     let config = {
         temp: temp,
+        server,
         /**
          * Files path
          */
@@ -28,8 +30,12 @@ module.exports = function () {
             json: require('./bower.json'),
             directory: './public/lib',
             ignorePath: '../../public'
-        }
-
+        },
+        /**
+         * Node settings
+         */
+        defaultPort: 3000,
+        nodeServer: './app.js'
     };
 
     config.getWiredepDefaultOptions = () => {

@@ -5,6 +5,7 @@ const del = require('del');
 
 const $ = require('gulp-load-plugins')({lazy: true});
 
+const port = process.env.PORT || config.defaultPort;
 // gulp vet
 gulp.task('vet', () => {
     log('Analyzing source with JSHint and JSCS');
@@ -58,6 +59,20 @@ gulp.task('inject', ['wiredep', 'styles'], () => {
         .src(config.index)
         .pipe($.inject(gulp.src(config.css), injectOptions))
         .pipe(gulp.dest(config.client));
+});
+// listen server
+gulp.task('server-dev', ['inject'], () => {
+    let isDev = true;
+    let nodeOptions = {
+        script: config.nodeServer,
+        delayTime: 1,
+        env: {
+            'PORT': port,
+            'NODE_ENV': isDev ? 'dev' : 'build'
+        },
+        watch: [config.server]
+    }
+    return $.nodemon(nodeOptions);
 });
 /*=============================*/
 function errorLogger(error) {
