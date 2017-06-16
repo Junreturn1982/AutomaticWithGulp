@@ -51,9 +51,12 @@ gulp.task('wiredep', () => {
 
 gulp.task('inject', ['wiredep', 'styles'], () => {
     log('Wire up css js into the html and call wiredep');
+    let injectOptions = {
+        ignorePath: ''
+    };
     return gulp
         .src(config.index)
-        .pipe($.inject(gulp.src(config.css)))
+        .pipe($.inject(gulp.src(config.css), injectOptions))
         .pipe(gulp.dest(config.client));
 });
 /*=============================*/
