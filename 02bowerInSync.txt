@@ -1,3 +1,5 @@
 http://www.browsersync.io
 /*========*/
 npm install --save-dev browser-sync
+/*========*/
+npm install --save-dev gulp-task-listing gulp-imagemin
