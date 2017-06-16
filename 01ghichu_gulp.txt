@@ -79,3 +79,6 @@ npm install --save-dev wiredep gulp-inject
       ]
     }
   }
+/*========================*/
+// nodemon: watch and restart server
+npm install --save-dev gulp-nodemon

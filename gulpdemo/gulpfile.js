@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const args = require('yargs').argv;
+const browserSync = require('browser-sync');
 const config = require('./gulp.config')();
 const del = require('del');
 
@@ -71,10 +72,49 @@ gulp.task('server-dev', ['inject'], () => {
             'NODE_ENV': isDev ? 'dev' : 'build'
         },
         watch: [config.server]
-    }
-    return $.nodemon(nodeOptions);
+    };
+    return $.nodemon(nodeOptions)
+        .on('restart', ['vet'], (event) => {
+            log('*** nodemon restart ***');
+            log('files changed on restart: \n' + event);
+        })
+        .on('start', () => {
+            log('*** nodemon started ***');
+            startBrowserSync();
+        })
+        .on('crash', () => {
+            log('*** nodemon crashed: script crashed for some reason ***');
+        })
+        .on('exit', () => {
+            log('*** nodemon exited cleanly ***');
+        });
 });
 /*=============================*/
+function startBrowserSync() {
+    if (browserSync.active) {
+        return;
+    }
+    log('Starting browser-sync on port ' + port);
+    let options = {
+        proxy: 'localhost:' + port,
+        port: 3000,
+        files: ['./src/views/' + '*.*'], // '**/*.*'
+        ghostMode: {
+            clicks: true,
+            location: false,
+            forms: true,
+            scroll: true
+        },
+        injectChanges: true,
+        logFileChanges: true,
+        logLevel: 'debug',
+        logPrefix: 'gulp-patterns',
+        notify: true,
+        reloadDelay: 1000
+    };
+    browserSync(options);
+}
+
 function errorLogger(error) {
     log('*** Start of error ***');
     log(error);
