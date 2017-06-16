@@ -15,6 +15,8 @@ module.exports = function () {
                 './src/**/*.js',
                 './*.js'
             ],
+        build: './build/',
+        fonts: './public/lib/font-awesome/fonts/**/*.*',
         less: client + 'styles/styles.less',
         //
         client: './src/views',

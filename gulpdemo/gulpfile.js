@@ -34,6 +34,13 @@ gulp.task('styles', ['clean-styles'],() => {
         .pipe(gulp.dest(config.temp));
 });
 
+gulp.task('fonts', () => {
+    log('Copying fonts');
+    return gulp
+        .src(config.fonts)
+        .pipe(gulp.dest(config.build + 'fonts'));
+});
+
 gulp.task('clean-styles', (done) => {
     let files = config.temp + '**/*.css';
     clean(files, done);
