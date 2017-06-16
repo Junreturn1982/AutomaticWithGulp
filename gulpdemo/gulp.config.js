@@ -1,8 +1,10 @@
 module.exports = function () {
     let client = './src/client/';
     let clientView = './src/views/';
+    let temp = './.tmp/';
+
     let config = {
-        temp: './.tmp/',
+        temp: temp,
         /**
          * Files path
          */
@@ -18,6 +20,7 @@ module.exports = function () {
         js: [
             './public/lib/**/*.js',
         ],
+        css: temp + 'styles.css',
         /**
          * Bower and npm location 
          */
