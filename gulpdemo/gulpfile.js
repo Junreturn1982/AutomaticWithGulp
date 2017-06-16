@@ -41,6 +41,14 @@ gulp.task('fonts', () => {
         .pipe(gulp.dest(config.build + 'fonts'));
 });
 
+gulp.task('images', () => {
+    log('Copying and compressing the images');
+    return gulp
+        .src(config.images)
+        .pipe($.imagemin({optimizationLevel: 4}))
+        .pipe(gulp.dest(config.build + 'images'));
+});
+
 gulp.task('clean-styles', (done) => {
     let files = config.temp + '**/*.css';
     clean(files, done);

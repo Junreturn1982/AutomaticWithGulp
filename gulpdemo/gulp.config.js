@@ -17,6 +17,7 @@ module.exports = function () {
             ],
         build: './build/',
         fonts: './public/lib/font-awesome/fonts/**/*.*',
+        images: './public/images/**/*.*',
         less: client + 'styles/styles.less',
         //
         client: './src/views',
